@@ -4,6 +4,8 @@
 
 A minimal, dependency-free implementation of GPT training and inference in 200 lines of Python. Everything you need to understand how large language models work, with zero abstractions hiding the fundamentals.
 
+**Source**: [Andrej Karpathy's original gist](https://gist.github.com/karpathy/8627fe009c40f57531cb18360106ce95) | [Tweet](https://x.com/karpathy/status/2021694437152157847)
+
 ## What's Inside
 
 | Component | Lines | Purpose |
