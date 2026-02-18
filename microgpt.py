@@ -9,6 +9,7 @@ Everything else is just efficiency.
 import os       # os.path.exists
 import math     # math.log, math.exp
 import random   # random.seed, random.choices, random.gauss, random.shuffle
+import json     # json.load, json.dump
 random.seed(42) # Let there be order among chaos
 
 # Let there be an input dataset `docs`: list[str] of documents (e.g. a dataset of names)
@@ -182,6 +183,11 @@ for step in range(num_steps):
         p.grad = 0
 
     print(f"step {step+1:4d} / {num_steps:4d} | loss {loss.data:.4f}")
+    print(f"saving model to disk...")
+    
+    model_weights = {k: [[vi.data for vi in row] for row in mat]
+                     for k, mat in state_dict.items()}
+    json.dump(model_weights, open('model.json', 'w'))
 
 # Inference: may the model babble back to us
 temperature = 0.5 # in (0, 1], control the "creativity" of generated text, low to high
